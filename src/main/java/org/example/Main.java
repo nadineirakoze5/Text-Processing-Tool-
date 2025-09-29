@@ -11,20 +11,20 @@ import javafx.geometry.Insets;
 
 public class Main extends Application {
 
-    TextArea textInput;
-    TextArea resultArea;
+    TextField textInput;
+    TextField resultArea;
     TextField searchBox;
     TextField replaceBox;
     Label statusLabel;
 
     public void start(Stage window) {
 
-        textInput = new TextArea();
+        textInput = new TextField();
         textInput.setPromptText("Enter your text here...");
-        textInput.setPrefHeight(200);
+        textInput.setPrefHeight(50);
 
-        resultArea = new TextArea();
-        resultArea.setPrefHeight(200);
+        resultArea = new TextField();
+        resultArea.setPrefHeight(50);
         resultArea.setEditable(false);
 
         searchBox = new TextField();
@@ -35,13 +35,13 @@ public class Main extends Application {
 
         statusLabel = new Label("Ready to process text");
 
-        Button findBtn = new Button("Find");
-        Button replaceBtn = new Button("Replace");
-        Button resetBtn = new Button("Clear");
+        Button findButton = new Button("Find");
+        Button replaceButton = new Button("Replace");
+        Button resetButton = new Button("Clear");
 
-        findBtn.setOnAction(e -> findWords());
-        replaceBtn.setOnAction(e -> replaceWords());
-        resetBtn.setOnAction(e -> clearAll());
+        findButton.setOnAction(e -> findWords());
+        replaceButton.setOnAction(e -> replaceWords());
+        resetButton.setOnAction(e -> clearAll());
 
         HBox searchLayout = new HBox(10);
         VBox findSection = new VBox(5);
@@ -53,7 +53,7 @@ public class Main extends Application {
         searchLayout.getChildren().addAll(findSection, replaceSection);
 
         HBox buttonLayout = new HBox(10);
-        buttonLayout.getChildren().addAll(findBtn, replaceBtn, resetBtn);
+        buttonLayout.getChildren().addAll(findButton, replaceButton, resetButton);
 
         VBox mainLayout = new VBox(10);
         mainLayout.setPadding(new Insets(15));
@@ -69,7 +69,7 @@ public class Main extends Application {
                 resultArea
         );
 
-        window.setScene(new Scene(mainLayout, 800, 600));
+        window.setScene(new Scene(mainLayout, 400, 400));
         window.setTitle("My Text Processor");
         window.show();
     }
